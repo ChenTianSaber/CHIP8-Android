@@ -1,6 +1,7 @@
 package com.example.chip8
 
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -12,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var screen: TextView
 
-    private val computer = Computer()
+    private val computer = Computer(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +35,15 @@ class MainActivity : AppCompatActivity() {
         val romBytes = assets.open("PONG").readBytes()
         computer.loadRom(romBytes)
     }
+
+    fun onUpClick(view: View) {
+
+    }
+
+    fun onDownClick(view: View) {
+
+    }
+
 }
 
 interface OnDrawListener {

@@ -33,7 +33,7 @@ class FrameBuffer {
                 val c = if (pixel(x, y) == 0) "□" else "■"
                 line += c
             }
-            Log.d(MainActivity.TAG, "$line")
+//            Log.d(MainActivity.TAG, "$line")
             frame += "$line\n"
         }
 //        Log.d(MainActivity.TAG, "\n\n")
