@@ -25,6 +25,7 @@ class Computer(var activity: MainActivity) {
     private var cpuFuture: ScheduledFuture<*>? = null
     private var timerFuture: ScheduledFuture<*>? = null
     private val soundPool: SoundPool = SoundPool(10, AudioManager.STREAM_SYSTEM, 5)
+    val keyboard: Keyboard = Keyboard()
 
     // TODO 将byte转换成int，代表无符号的数
     // 但是转换关系还没看懂，稍后再看

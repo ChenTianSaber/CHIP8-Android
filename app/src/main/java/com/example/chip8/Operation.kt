@@ -342,6 +342,11 @@ class Draw(c: Computer, nib: Nibbles) : Operation(c, nib) {
 abstract class SkipBase(c: Computer, n: Nibbles) : Operation(c, n) {
     override fun run() {
         // TODO
+        val key = computer.keyboard.key
+        val expected = computer.cpu.V[x]
+        if (condition(key, expected)) {
+            computer.cpu.PC += 2
+        }
     }
 
     abstract fun condition(key: Int?, expected: Int): Boolean
@@ -384,6 +389,7 @@ class LdVDt(c: Computer, n: Nibbles) : Operation(c, n) {
 class LdVxK(c: Computer, n: Nibbles) : Operation(c, n) {
     override fun run() {
         // TODO 等待按键
+        computer.cpu.V[x] = computer.keyboard.waitForKeyPress()
     }
 
     override fun toString() = "LD V$x, Keyboard"
